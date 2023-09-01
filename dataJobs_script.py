@@ -1,7 +1,6 @@
 import psycopg2
 import csv
 import json
-import pandas as pd
 
 #Carga de la configuracion de los datos de la database
 with open('db_config.json') as config_file:
@@ -20,7 +19,6 @@ try:
     cursor = conn.cursor()
 
     #Creacion de la tabla dataJobs_glassdoor
-    
     create_table = """
         CREATE TABLE IF NOT EXISTS dataJobs_glassdoor (
             id SERIAL PRIMARY KEY,

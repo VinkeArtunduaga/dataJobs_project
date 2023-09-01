@@ -3,11 +3,12 @@ import psycopg2
 
 df = pd.read_csv("C:/Users/kevin/ETL/Postgres/kaggle/dataJobs_project/dataJobs_all.csv", delimiter=',')
 
-# output_filename = 'dataJobs_all.csv'
-# df.to_csv(output_filename, index=False)
+# Guardado del dataset mediante pandas
+output_filename = 'dataJobs_all.csv'
+df.to_csv(output_filename, index=False)
+print(f"CSV guardado como '{output_filename}' exitosamente.")
 
-# print(f"CSV guardado como '{output_filename}' exitosamente.")
-
+# Categorias mapeadas
 category_mapping = {
 
     "Technology/IT": [
@@ -18,7 +19,9 @@ category_mapping = {
         "System Analyst/Backend Developer", "Junior Big Data Engineer",
         "Sr Software Engineer, Ad tech", "Software Engineer – Networks"
     ],
+    
     "Management": ["Manager", "Director", "Lead"],
+
     "Data Science/Analytics": [
         "Data Scientist", "Statistician", "Market Research Analyst",
         "Big Data Analyst (m/w)"
@@ -53,53 +56,39 @@ category_mapping = {
         "Territory Manager (Ponta Grossa/PR)"
     ],
     "Logistics/Supply Chain": ["Supply Chain Analyst", "Logistics Manager"],
-    "Quality Assurance": ["Quality Assurance Analyst"],
-    "Telecommunications": ["Telecommunications Engineer"],
-    "Entertainment": [
-        "Entertainment Analyst", "Media Analyst", "Sports Analyst",
-        "Music Producer", "Music Instructor"
-    ],
-    "Environment": ["Environmental Engineer", "Climate Change Analyst"],
-    "Legal": ["Legal Analyst", "Legal Consultant"],
+
     "Design": ["Designer", "Art Director", "Interior Designer"],
-    "Social Services": ["Social Worker", "Nonprofit Coordinator"],
-    "Energy": ["Energy Analyst", "Renewable Energy Engineer"],
-    "Government": ["Government Analyst"],
+
     "Retail": ["Retail Manager"],
+
     "Research": [
         "Research Scientist", "Research Analyst",
         "Research Scientist - Computer Vision",
         "Senior Research Scientist", "Assistant Professor - Computer Sciences"
     ],
+
     "Human Resources": ["HR Manager", "Recruiter"],
+
     "Architecture/Construction": ["Architect", "Construction Engineer"],
-    "Customer Service": ["Customer Service Representative"],
+
     "Manufacturing": [
         "Manufacturing Engineer", "Quality Control Analyst"
     ],
     "Food Industry": ["Executive Chef", "Food Quality Analyst"],
+
     "Tourism/Hospitality": [
         "Tourism Coordinator", "Hospitality Manager", "Travel Consultant"
     ],
-    "Arts/Creative": [
-        "Creative Writer", "Musician", "Visual Artist",
-        "Fashion Designer", "Textile Analyst", "Art Director"
-    ],
     "Language/Linguistics": ["Linguist", "Language Teacher"],
-    "Psychology": ["Psychologist", "Behavioral Analyst"],
-    "History/Heritage": [
-        "Historian", "Historical Preservation Specialist",
-        "Archaeologist", "Historical Researcher"
-    ],
+
     "Transportation": [
         "Transportation Planner", "Aviation Engineer", "Logistics Analyst",
         "Roving Project Manager", "Project Manager - Mechanical + Electrical",
         "Territory Manager (Outdoor Sales Consultant)"
     ]
-    # ... (otras categorías)
 }
 
-# Crear una nueva columna 'jobTitle_normalized'
+# Crear una nueva columna jobTitle_normalized
 df['jobTitle_normalized'] = ""
 
 # Realizar las transformaciones y mapeo a categorías
@@ -113,7 +102,7 @@ other_rows = df['jobTitle_normalized'].isnull()
 df.loc[other_rows, 'jobTitle_normalized'] = "Other"
 print(f"Registrados {other_rows.sum()} títulos en la categoría Other")
 
-# Conexión a la base de datos PostgreSQL
+# Conexión a la base de datos 
 conn = psycopg2.connect(
     database = "ETL",
     user = "postgres",
@@ -121,10 +110,9 @@ conn = psycopg2.connect(
     host = "localhost"
 )
 
-# Crear un cursor para ejecutar consultas
 cursor = conn.cursor()
 
-# Actualizar la columna 'header_jobtitle' en la base de datos
+# Actualizar la columna jobTitle_normalized 
 for index, row in df.iterrows():
     header_jobtitle = row['jobTitle_normalized']
     update_query = f"""
