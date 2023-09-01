@@ -8,7 +8,7 @@ output_filename = 'dataJobs_all.csv'
 df.to_csv(output_filename, index=False)
 print(f"CSV guardado como '{output_filename}' exitosamente.")
 
-# Categorias mapeadas
+# Categorias mapeadas / 19 Categorias
 category_mapping = {
 
     "Technology/IT": [
@@ -19,7 +19,7 @@ category_mapping = {
         "System Analyst/Backend Developer", "Junior Big Data Engineer",
         "Sr Software Engineer, Ad tech", "Software Engineer – Networks"
     ],
-    
+
     "Management": ["Manager", "Director", "Lead"],
 
     "Data Science/Analytics": [
