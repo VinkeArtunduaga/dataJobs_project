@@ -12,9 +12,9 @@ ETL_project.pdf: Es el documento en el cual estan descritas las fases realizadas
 
 dataJobs_script.py: Este el codigo principal en el que se realizo la conexion a postgresql, se cargaron los datos a la BD, se reemplazaron los valores nulos en algunas columnas, campos vacios y normalizaciones para los titulos del trabajo. 
 
-df_tocsv_and_transfomations.py: Aqi se tuvo que usar pandas para poder incrustar correctamente el csv y donde se realizo la mayor transformacion de datos para la normalizacion del jobTitle.
+df_tocsv_and_transfomations.py: Aqui se tuvo que usar pandas para poder incrustar correctamente el csv y donde se realizo la mayor transformación de datos para la normalizacion del jobTitle.
 
-dimesions_script.py: Aqui se hace la insercion de datos en las ds dimensiones que se va a hacer uso mas en el futuro del proyecto.
+dimesions_script.py: Aqui se hace la inserción de datos en las ds dimensiones que se va a hacer uso mas en el futuro del proyecto.
 
 project_dashboard.pdf: Es el dashboard que realice en power bi, con tres graficas por ahora.
 
