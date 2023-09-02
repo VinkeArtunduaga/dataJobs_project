@@ -6,7 +6,7 @@ El objetivo principal del proyecto es analizar las ofertas laborales en el campo
 
 ## Archivos del repositorio
 
-EDA_project.ipynb: Esta todo el analisis exploratorio de las tablas usadas que son "glassdoor.csv", "glassdoor_benefits_highlights.csv" y "glassdoor_salary_salaries.csv".
+EDA_project.ipynb: Esta todo el analisis exploratorio de las tablas usadas que son "glassdoor.csv", "glassdoor_benefits_highlights.csv" y "glassdoor_salary_salaries.csv" (descargar estos csv para la ejecucion del codigo).
 
 ETL_project.pdf: Es el documento en el cual estan descritas las fases realizadas y explicadas a detalles.
 
