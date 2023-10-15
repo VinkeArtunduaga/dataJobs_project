@@ -38,3 +38,5 @@ project_dashboard.pdf: Es el dashboard que realice en power bi, con tres grafica
 3. Cambiar la direccion de donde se encuentran los archivos csv de glassdoor.csv, glassdoor_benefits_highlights.csv y glassdoor_salary_salaries.csv.
 4. Al ejecutar cada uno de los bloques o de corrido deberia apreciarse el analisis.
 
+## Para la segunda parte del proyecto hice una carpeta llama API ahi estan todo lo que se realizo.
+
